@@ -28,20 +28,20 @@ html, body {
 
   /*Light theme*/
 
---very-light-gray: hsl(0deg, 0%, 98%)
---very-light-grayish-blue: hsl(236deg, 33%, 92%)
---light-grayish-glue: hsl(233deg, 11%, 84%)
---dark-grayish-blue: hsl(236deg, 9%, 61%)
---very--dark--grayish--blue: hsl(235, 19%, 35%)
+--very-light-gray: hsl(0deg, 0%, 98%);
+--very-light-grayish-blue: hsl(236deg, 33%, 92%);
+--light-grayish-glue: hsl(233deg, 11%, 84%);
+--dark-grayish-blue: hsl(236deg, 9%, 61%);
+--very-dark-grayish-blue: hsl(235, 19%, 35%);
 
 /* Dark Theme*/
---very-dark-blue: hsl(235deg, 21%, 11%)
---very-dark-desaturated-blue: hsl(235deg, 24%, 19%)
---light-grayish-blue: hsl(234deg, 39%, 85%)
---light-grayish-blue-hover: hsl(236deg, 33%, 92%)
---dark-grayish-blue: hsl(234deg, 11%, 52%)
---very-dark-grayish-blue: hsl(233deg, 14%, 35%)
---very-dark-grayish-blue: hsl(237deg, 14%, 26%)
+--very-dark-blue: hsl(235deg, 21%, 11%);
+--very-dark-desaturated-blue: hsl(235deg, 24%, 19%);
+--light-grayish-blue: hsl(234deg, 39%, 85%);
+--light-grayish-blue-hover: hsl(236deg, 33%, 92%);
+--dark-grayish-blue: hsl(234deg, 11%, 52%);
+--very-dark-grayish-blue: hsl(233deg, 14%, 35%);
+--very-dark-grayish-blue: hsl(237deg, 14%, 26%);
 
 
 }
@@ -59,7 +59,7 @@ body {
 */
 img, picture, video, canvas, svg {
   display: block;
-  max-width: 100%;
+  width: 100%;
 }
 /*
   7. Remove built-in form typography styles
@@ -78,7 +78,7 @@ p, h1, h2, h3, h4, h5, h6 {
 */
 #root, #__next {
   isolation: isolate;
-
+height: 100%;
  
   
 }
