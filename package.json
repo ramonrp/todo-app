@@ -8,8 +8,10 @@
   },
   "dependencies": {
     "react": "^17.0.0",
+    "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^17.0.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.0",

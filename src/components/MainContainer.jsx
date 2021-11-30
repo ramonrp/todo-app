@@ -1,4 +1,5 @@
 import * as React from "react";
+import { v4 as uuidv4 } from "uuid";
 import { Input } from "./Input";
 import { FilterList } from "./FilterList";
 import { ListWrapper } from "./ListWrapper";
@@ -11,7 +12,7 @@ const MainContainer = () => {
     e.preventDefault();
     const task = e.target.elements.textInput.value;
     e.target.elements.textInput.value = "";
-    const newList = [...list, { id: Math.random(), task, completed: false }];
+    const newList = [...list, { id: uuidv4(), task, completed: false }];
     setList(newList);
   }
 
@@ -31,6 +32,21 @@ const MainContainer = () => {
     setList(newList);
   }
 
+  const onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
+    if (!destination) return;
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    )
+      return;
+    const newList = list;
+    const [removed] = newList.splice(source.index, 1);
+    newList.splice(destination.index, 0, removed);
+    setList(newList);
+  };
+
   return (
     <>
       <Input addElement={addElement}></Input>
@@ -39,6 +55,7 @@ const MainContainer = () => {
         taskToggler={taskToggler}
         filter={filter}
         removeElement={removeElement}
+        onDragEnd={onDragEnd}
       />
       <FilterList setFilter={setFilter} />
     </>

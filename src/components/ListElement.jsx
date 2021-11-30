@@ -1,19 +1,30 @@
 import styled from "styled-components";
+import { Draggable } from "react-beautiful-dnd";
 
 const ListElement = (props) => {
-  const { task, completed, id, taskToggler, removeElement } = props;
+  const { task, completed, id, taskToggler, removeElement, index } = props;
   return (
-    <Wrapper>
-      <input
-        checked={completed}
-        onChange={(e) => taskToggler(e, id)}
-        type="checkbox"
-      ></input>
-      <TaskText style={{ "--text-style": `${completed && "line-through"}` }}>
-        {task}
-      </TaskText>
-      <button onClick={() => removeElement(id)}>Remove</button>
-    </Wrapper>
+    <Draggable draggableId={id} index={index}>
+      {(provided) => (
+        <Wrapper
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          <input
+            checked={completed}
+            onChange={(e) => taskToggler(e, id)}
+            type="checkbox"
+          ></input>
+          <TaskText
+            style={{ "--text-style": `${completed && "line-through"}` }}
+          >
+            {task}
+          </TaskText>
+          <button onClick={() => removeElement(id)}>Remove</button>
+        </Wrapper>
+      )}
+    </Draggable>
   );
 };
 
