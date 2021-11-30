@@ -13,7 +13,7 @@ export const Header = () => {
   );
 };
 
-const TitleContainer = styled.div`
+const TitleContainer = styled.header`
   display: flex;
   justify-content: space-between;
   color: white;
