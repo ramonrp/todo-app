@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-
 const GlobalStyles = createGlobalStyle`
 /*
   1. Use a more-intuitive box-sizing model.
@@ -19,6 +18,7 @@ const GlobalStyles = createGlobalStyle`
 html, body {
   height: 100%;
   font-size: 18px;
+  font-family: 'Josefin Sans', sans-serif;
 
   --primary-bright-blue: hsl(220deg,98%,61%);
   --background-check: linear-gradient(
