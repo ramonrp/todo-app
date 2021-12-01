@@ -1,14 +1,24 @@
-import backgroundLight from "../../public/images/bg-mobile-light.jpg";
+import backgroundLightDesk from "../../public/images/bg-desktop-light.jpg";
+import backgroundDarkDesk from "../../public/images/bg-desktop-dark.jpg";
+
+import { QUERIES } from "../constants";
+
 import styled from "styled-components";
 
 import { GlobalStyles } from "../globalStyles";
 import { Header } from "./Header";
 import { MaxWidthWrapper } from "./MaxWidthWrapper";
 import { MainContainer } from "./MainContainer";
+import { useThemeContext } from "../context";
+
 
 function App() {
+  const { theme } = useThemeContext();
+  const bgImage = theme === "light" ? backgroundLightDesk : backgroundDarkDesk;
+  const bgColor =
+    theme === "light" ? "var(--very-light-gray)" : "var(--very-dark-blue)";
   return (
-    <Wrapper>
+    <Wrapper bgImage={bgImage} bgColor={bgColor}>
       <MaxWidthWrapper>
         <Header />
         <MainContainer />
@@ -20,11 +30,16 @@ function App() {
 
 const Wrapper = styled.div`
   min-height: 100%;
-  background-color: var(--very-light-gray);
-  background-image: url(${backgroundLight});
+  background-color: ${(p) => p.bgColor};
+  background-image: url(${(p) => p.bgImage});
   background-size: 100% 200px;
   background-repeat: no-repeat;
   padding-top: 48px;
+
+  @media ${QUERIES.tabletAndUp} {
+    background-size: 100% 300px;
+    padding-top: 70px;
+  }
 `;
 
 const CheckInput = styled.div`
