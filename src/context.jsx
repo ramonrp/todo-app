@@ -6,7 +6,6 @@ function getUserPreferenceTheme() {
   const theme = window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
-  console.log(theme);
   return theme;
 }
 const ThemeProvider = ({ children }) => {
@@ -14,8 +13,13 @@ const ThemeProvider = ({ children }) => {
     "theme",
     getUserPreferenceTheme
   );
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

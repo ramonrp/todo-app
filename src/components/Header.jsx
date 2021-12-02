@@ -7,22 +7,15 @@ import styled from "styled-components";
 import VisuallyHidden from "./VisuallyHidden";
 import { useThemeContext } from "../context";
 export const Header = () => {
-  const { theme, setTheme } = useThemeContext();
+  const { theme, toggleTheme } = useThemeContext();
   return (
     <TitleContainer>
       <Title>TODO</Title>
-      {theme === "light" && (
-        <IconButton onClick={() => setTheme("dark")}>
-          <MoonIcon />
-          <VisuallyHidden>Toggle Dark / Light Theme</VisuallyHidden>
-        </IconButton>
-      )}
-      {theme === "dark" && (
-        <IconButton onClick={() => setTheme("light")}>
-          <SunIcon />
-          <VisuallyHidden>Toggle Dark / Light Theme</VisuallyHidden>
-        </IconButton>
-      )}
+      <IconButton onClick={toggleTheme}>
+        {theme === "light" && <MoonIcon />}
+        {theme === "dark" && <SunIcon />}
+        <VisuallyHidden>Toggle Dark / Light Theme</VisuallyHidden>
+      </IconButton>
     </TitleContainer>
   );
 };
