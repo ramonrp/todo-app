@@ -4,20 +4,12 @@ import { useThemeContext } from "../context";
 
 const FilterList = (props) => {
   const { setFilter, filter } = props;
-  const { theme } = useThemeContext();
-  const bgColor =
-    theme === "light" ? "white" : "var(--very-dark-desaturated-blue)";
-  const hoverColor =
-    theme === "light"
-      ? "var(--very-dark-grayish-blue)"
-      : "var(--very-light-grayish-blue)";
   return (
     <div>
-      <UL bgColor={bgColor}>
+      <UL>
         <li>
           <Button
             onClick={() => setFilter("non filter")}
-            hoverColor={hoverColor}
             style={{
               "--color": `${
                 filter === "non filter"
@@ -32,7 +24,6 @@ const FilterList = (props) => {
         <li>
           <Button
             onClick={() => setFilter(false)}
-            hoverColor={hoverColor}
             style={{
               "--color": `${
                 filter === false
@@ -47,12 +38,9 @@ const FilterList = (props) => {
         <li>
           <Button
             onClick={() => setFilter(true)}
-            hoverColor={hoverColor}
             style={{
               "--color": `${
-                filter === true
-                  ? "hsla(220, 98%, 61%, 1)"
-                  : "hsla(235, 9%, 61%, 1)"
+                filter === true ? "var(--active-tab)" : "var(--left-text)"
               }`,
             }}
           >
@@ -71,7 +59,7 @@ const UL = styled.ul`
   padding: 14px 20px;
   gap: 18px;
   border-radius: 8px;
-  background-color: ${(p) => p.bgColor};
+  background-color: var(--background-task);
 
   @media ${QUERIES.tabletAndUp} {
     padding: 20px 24px;
@@ -87,7 +75,7 @@ const Button = styled.button`
   font-weight: 700;
 
   &:hover {
-    color: ${(p) => p.hoverColor};
+    color: var(--task-text);
   }
 `;
 export { FilterList };

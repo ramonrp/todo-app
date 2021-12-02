@@ -2,7 +2,7 @@ import backgroundLightDesk from "../../public/images/bg-desktop-light.jpg";
 import backgroundDarkDesk from "../../public/images/bg-desktop-dark.jpg";
 
 import { QUERIES } from "../constants";
-
+import { useRef, useEffect } from "react";
 import styled from "styled-components";
 
 import { GlobalStyles } from "../globalStyles";
@@ -11,14 +11,15 @@ import { MaxWidthWrapper } from "./MaxWidthWrapper";
 import { MainContainer } from "./MainContainer";
 import { useThemeContext } from "../context";
 
-
 function App() {
   const { theme } = useThemeContext();
   const bgImage = theme === "light" ? backgroundLightDesk : backgroundDarkDesk;
-  const bgColor =
-    theme === "light" ? "var(--very-light-gray)" : "var(--very-dark-blue)";
+  const themeRef = useRef();
+  useEffect(() => {
+    themeRef.current.setAttribute("color-scheme", `${theme}`);
+  }, [theme]);
   return (
-    <Wrapper bgImage={bgImage} bgColor={bgColor}>
+    <Wrapper bgImage={bgImage} ref={themeRef}>
       <MaxWidthWrapper>
         <Header />
         <MainContainer />
@@ -30,7 +31,7 @@ function App() {
 
 const Wrapper = styled.div`
   min-height: 100%;
-  background-color: ${(p) => p.bgColor};
+  background-color: var(--background);
   background-image: url(${(p) => p.bgImage});
   background-size: 100% 200px;
   background-repeat: no-repeat;

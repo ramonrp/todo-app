@@ -1,26 +1,14 @@
 import { QUERIES } from "../constants";
 import styled from "styled-components";
-import { useThemeContext } from "../context";
 
 const Input = (props) => {
   const { addElement } = props;
-  const { theme } = useThemeContext();
-  const bgColor =
-    theme === "light" ? "white" : "var(--very-dark-desaturated-blue)";
-  const textColor =
-    theme === "light"
-      ? "var(--very-dark-grayish-blue)"
-      : "var(--light-grayish-blue)";
-  const borderColor =
-    theme === "light"
-      ? "var(--light-grayish-blue)"
-      : "var(--very-dark-grayish-blue)";
+
   return (
-    <InputWrapper bgColor={bgColor} onSubmit={(e) => addElement(e)}>
+    <InputWrapper onSubmit={(e) => addElement(e)}>
       <Label htmlFor="textInput">
-        <CheckInput borderColor={borderColor}></CheckInput>
+        <CheckInput></CheckInput>
         <TodoInput
-          textColor={textColor}
           id="textInput"
           placeholder="Create a new todo..."
         ></TodoInput>
@@ -31,7 +19,7 @@ const Input = (props) => {
 
 const CheckInput = styled.div`
   border: 1px solid;
-  border-color: ${(p) => p.borderColor};
+  border-color: var(--completed-text);
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -50,8 +38,7 @@ const Label = styled.label`
   }
 `;
 const InputWrapper = styled.form`
-  background-color: ${(p) => p.bgColor};
-
+  background-color: var(--background-task);
   border-radius: 8px;
   &:focus-within {
     outline-color: -webkit-focus-ring-color;
@@ -64,7 +51,7 @@ const TodoInput = styled.input`
   border: none;
   background-color: transparent;
   width: auto;
-  color: ${(p) => p.textColor};
+  color: var(--task-text);
   &:focus-visible {
     outline: none;
   }

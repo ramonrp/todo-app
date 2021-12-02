@@ -26,12 +26,12 @@ const Wrapper = styled.label`
   flex-shrink: 0;
   place-items: center;
   border-radius: 50%;
-  background: var(--light-grayish-blue);
+  background: var(--completed-text);
   width: 20px;
   height: 20px;
 
   &:hover {
-    background: var(--background-check);
+    background: var(--linear-gradient);
   }
 `;
 
@@ -41,7 +41,8 @@ const Background = styled.div`
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: ${(p) => (p.checked ? "var(--background-check)" : "white")};
+  background: ${(p) =>
+    p.checked ? "var(--linear-gradient)" : "var(--background-task)"};
 `;
 
 const OriginalInput = styled.input`

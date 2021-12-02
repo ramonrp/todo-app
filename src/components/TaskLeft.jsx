@@ -6,21 +6,14 @@ const TaskLeft = (props) => {
   const { list, removeFinishTask, filter, setFilter } = props;
   const leftTasks = list.filter((task) => !task.completed).length;
   const { theme } = useThemeContext();
-  const bgColor =
-    theme === "light" ? "white" : "var(--very-dark-desaturated-blue)";
-  const hoverColor =
-    theme === "light"
-      ? "var(--very-dark-grayish-blue)"
-      : "var(--very-light-grayish-blue)";
+
   return (
-    <Wrapper bgColor={bgColor}>
+    <Wrapper>
       <p>{leftTasks} items left</p>
       <FilterListWrapper>
         <FilterList setFilter={setFilter} filter={filter} />
       </FilterListWrapper>
-      <Button hoverColor={hoverColor} onClick={removeFinishTask}>
-        clear completed
-      </Button>
+      <Button onClick={removeFinishTask}>clear completed</Button>
     </Wrapper>
   );
 };
@@ -29,7 +22,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${(p) => p.bgColor};
+  background-color: var(--background-task);
   padding: 14px 20px;
   color: hsla(235, 9%, 61%, 1);
   border-radius: 8px;
@@ -46,7 +39,7 @@ const Button = styled.button`
   color: hsla(235, 9%, 61%, 1);
 
   &:hover {
-    color: ${(p) => p.hoverColor};
+    color: var(--task-text);
   }
 `;
 

@@ -4,6 +4,8 @@ import CrossIcon from "./CrossIcon";
 import { QUERIES } from "../constants";
 import VisuallyHidden from "./VisuallyHidden";
 import { useThemeContext } from "../context";
+import { MyCheckBox } from "./MyCheckBox";
+
 const ListElement = (props) => {
   const { task, completed, id, taskToggler, removeElement, index } = props;
   const { theme } = useThemeContext();
@@ -32,18 +34,16 @@ const ListElement = (props) => {
           bgColor={bgColor}
           borderColor={borderColor}
         >
-          <Checkbox
+          <MyCheckBox
             checked={completed}
             onChange={(e) => taskToggler(e, id)}
-            type="checkbox"
-            bgColor={bgColor}
-            borderColor={borderColor}
-            borderGradient={borderGradient}
-          ></Checkbox>
+          />
           <TaskText
             style={{
               "--text-style": `${completed && "line-through"}`,
-              "--color": `${completed ? colorTextDone : colorText}`,
+              "--color": `${
+                completed ? "var(--completed-text)" : "var(--task-text)"
+              }`,
             }}
           >
             {task}
@@ -64,10 +64,10 @@ const Wrapper = styled.div`
   display: flex;
   gap: 12px;
   align-items: center;
-  background-color: ${(p) => p.bgColor};
+  background-color: var(--background-task);
   padding: 14px 20px;
   &:not(:last-of-type) {
-    border-bottom: 1px solid ${(p) => p.borderColor};
+    border-bottom: 1px solid var(--completed-text);
   }
 
   @media ${QUERIES.tabletAndUp} {
@@ -78,7 +78,7 @@ const Wrapper = styled.div`
 
 const TaskText = styled.p`
   text-decoration: var(--text-style);
-  color: var(--color);
+  color: var(--task-text);
 `;
 
 const Button = styled.button`
@@ -87,30 +87,6 @@ const Button = styled.button`
   cursor: pointer;
   margin-left: auto;
   width: 24px;
-`;
-
-const Checkbox = styled.input`
-  appearance: none;
-  background-color: var(--color);
-  margin: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: solid 1px;
-  border-color: ${(p) => p.borderColor};
-  display: grid;
-  place-content: center;
-  overflow: hidden;
-
-  &:checked {
-    background-image: var(--background-check);
-  }
-
-  &:checked::before {
-    content: "✓";
-    color: white;
-    font-weight: 700;
-  }
 `;
 
 const IconWrapper = styled.div`
