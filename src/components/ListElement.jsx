@@ -49,7 +49,9 @@ const ListElement = (props) => {
             {task}
           </TaskText>
           <Button onClick={() => removeElement(id)}>
-            <CrossIcon />
+            <IconWrapper>
+              <CrossIcon />
+            </IconWrapper>
             <VisuallyHidden>Remove task</VisuallyHidden>
           </Button>
         </Wrapper>
@@ -70,6 +72,7 @@ const Wrapper = styled.div`
 
   @media ${QUERIES.tabletAndUp} {
     padding: 20px 24px;
+    gap: 24px;
   }
 `;
 
@@ -83,6 +86,7 @@ const Button = styled.button`
   background-color: transparent;
   cursor: pointer;
   margin-left: auto;
+  width: 24px;
 `;
 
 const Checkbox = styled.input`
@@ -106,6 +110,13 @@ const Checkbox = styled.input`
     content: "✓";
     color: white;
     font-weight: 700;
+  }
+`;
+
+const IconWrapper = styled.div`
+  width: 12px;
+  @media ${QUERIES.tabletAndUp} {
+    width: 18px;
   }
 `;
 

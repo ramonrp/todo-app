@@ -52,4 +52,10 @@ const IconButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+  width: 20px;
+  padding: 0;
+
+  @media ${QUERIES.tabletAndUp} {
+    width: 26px;
+  }
 `;

@@ -1,6 +1,6 @@
 function CrossIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
       <path
         fill="#494C6B"
         fillRule="evenodd"
