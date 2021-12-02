@@ -45,6 +45,11 @@ const Background = styled.div`
   cursor: pointer;
   background: ${(p) =>
     p.checked ? "var(--linear-gradient)" : "var(--background-task)"};
+  &:focus-within {
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
+    outline-width: 1px;
+  }
 `;
 
 const OriginalInput = styled.input`
