@@ -42,12 +42,14 @@ const Background = styled.div`
   width: 18px;
   height: 18px;
   border-radius: 50%;
+  cursor: pointer;
   background: ${(p) =>
     p.checked ? "var(--linear-gradient)" : "var(--background-task)"};
 `;
 
 const OriginalInput = styled.input`
   opacity: 0;
+  cursor: pointer;
 `;
 
 const CheckMark = styled.span`
