@@ -26,24 +26,42 @@ html, body {
     hsl(280deg, 87%, 65%)
   ); 
 
-  /*Light theme*/
+  /*Light theme */
+--task-text-light: hsl(235, 19%, 35%);
+--completed-text-light: hsl(233deg, 11%, 84%);
+--background-task-light: hsl(0deg, 0%, 0%);
+--background-light:  hsl(0deg, 0%, 98%);
+--left-text-light: hsl(236deg, 9%, 61%);
 
---very-light-gray: hsl(0deg, 0%, 98%);
---very-light-grayish-blue: hsl(236deg, 33%, 92%);
---light-grayish-glue: hsl(233deg, 11%, 84%);
---dark-grayish-blue: hsl(236deg, 9%, 61%);
---very-dark-grayish-blue: hsl(235, 19%, 35%);
+ /*Dark theme */
+--task-text-dark: hsl(234deg, 39%, 85%);
+--completed-text-dark: hsl(233deg, 14%, 35%);
+--background-task-dark: hsl(237deg, 14%, 26%);
+--background-dark:  hsl(235deg, 21%, 11%);
+--left-text-dark: hsl(235deg, 9%, 61%);
 
-/* Dark Theme*/
---very-dark-blue: hsl(235deg, 21%, 11%);
---very-dark-desaturated-blue: hsl(235deg, 24%, 19%);
---light-grayish-blue: hsl(234deg, 39%, 85%);
---light-grayish-blue-hover: hsl(236deg, 33%, 92%);
---dark-grayish-blue: hsl(234deg, 11%, 52%);
---very-dark-grayish-blue: hsl(233deg, 14%, 35%);
---very-dark-grayish-blue: hsl(237deg, 14%, 26%);
+/*Common colors*/
+--linear-gradient: linear-gradient(
+    hsl(192deg, 100%, 67%),
+    hsl(280deg, 87%, 65%)
+  ); 
+--active-tab: hsl(220deg, 98%, 61%);
 
 
+@media (prefers-color-scheme: dark) {
+  --task-text: var(--task-text-light);
+  --completed-text:var(--completed-text-light);
+  --background-task: var(--background-task-light) ;
+  --background:  var(--background-light);
+  --left-text: var(--left-text-light);
+}
+
+@media (prefers-color-scheme: light) {
+  --task-text: var(--task-text-dark);
+  --completed-text:var(--completed-text-dark);
+  --background-task: var(--background-task-dark) ;
+  --background:  var(--background-dark);
+  --left-text: var(--left-text-dark);
 }
 /*
   Typographic tweaks!
