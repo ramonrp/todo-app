@@ -112,7 +112,7 @@ height: 100%;
  
   
 }
-
+}
 `;
 
 export { GlobalStyles };
