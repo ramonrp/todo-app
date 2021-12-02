@@ -29,6 +29,7 @@ const Wrapper = styled.label`
   background: var(--completed-text);
   width: 20px;
   height: 20px;
+  cursor: pointer;
 
   &:hover {
     background: var(--linear-gradient);
