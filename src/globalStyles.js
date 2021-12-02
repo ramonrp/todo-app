@@ -20,23 +20,18 @@ html, body {
   font-size: 18px;
   font-family: 'Josefin Sans', sans-serif;
 
-  --primary-bright-blue: hsl(220deg,98%,61%);
-  --background-check: linear-gradient(
-    hsl(192deg, 100%, 67%),
-    hsl(280deg, 87%, 65%)
-  ); 
 
   /*Light theme */
 --task-text-light: hsl(235, 19%, 35%);
 --completed-text-light: hsl(233deg, 11%, 84%);
---background-task-light: hsl(0deg, 0%, 0%);
+--background-task-light: white;
 --background-light:  hsl(0deg, 0%, 98%);
 --left-text-light: hsl(236deg, 9%, 61%);
 
  /*Dark theme */
 --task-text-dark: hsl(234deg, 39%, 85%);
 --completed-text-dark: hsl(233deg, 14%, 35%);
---background-task-dark: hsl(237deg, 14%, 26%);
+--background-task-dark: hsl(235deg, 24%, 19%);
 --background-dark:  hsl(235deg, 21%, 11%);
 --left-text-dark: hsl(235deg, 9%, 61%);
 
@@ -48,7 +43,7 @@ html, body {
 --active-tab: hsl(220deg, 98%, 61%);
 
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   --task-text: var(--task-text-light);
   --completed-text:var(--completed-text-light);
   --background-task: var(--background-task-light) ;
@@ -56,7 +51,24 @@ html, body {
   --left-text: var(--left-text-light);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
+  --task-text: var(--task-text-dark);
+  --completed-text:var(--completed-text-dark);
+  --background-task: var(--background-task-dark) ;
+  --background:  var(--background-dark);
+  --left-text: var(--left-text-dark);
+}
+
+[color-scheme="light"]{
+  --task-text: var(--task-text-light);
+  --completed-text:var(--completed-text-light);
+  --background-task: var(--background-task-light) ;
+  --background:  var(--background-light);
+  --left-text: var(--left-text-light);
+}
+
+
+[color-scheme="dark"]{
   --task-text: var(--task-text-dark);
   --completed-text:var(--completed-text-dark);
   --background-task: var(--background-task-dark) ;
